@@ -6,6 +6,7 @@ class MarkdownWriter:
 
     Param: file: path to file to write output to
     """
+    # FIXME: function signatures changes to show typing
     def __init__(self, file):
         self.output_file = file
 
@@ -81,6 +82,8 @@ class MarkdownWriter:
 
     @write_to_file
     def plot(self, figure, description: str):
+        # TODO: Document function
+        # FIXME: Find out how to manage and error check this function
         file_location = "".join(self.output_file.split("/")[:-1])
         if not os.path.isdir(f"{file_location}/resources"):
             os.system(f"mkdir {file_location}/resources")

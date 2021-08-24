@@ -1,4 +1,4 @@
-# Todo
+# TODO
 
 ### Done
 
@@ -11,9 +11,9 @@
 
 * diagrams/plots/images
   + Look into types of plots *with matplotlib*
-  + Simple introduction of plotting graphs 
-  + Needs error catching 
-  + Handling of other types of images 
+  + Simple introduction of plotting graphs
+  + Needs error catching
+  + Handling of other types of images
 
 ### Roadmap
 
@@ -22,3 +22,4 @@
 * Fix dependencies
   + Making some functionality optional
   + Check for optional dependencies and handle accordingly
+* Package module, learn how to do this properly
