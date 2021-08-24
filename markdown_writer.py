@@ -1,3 +1,6 @@
+import os
+import matplotlib.pyplot as plt
+
 class MarkdownWriter:
     """Write markdown output to a specified file
 
@@ -75,6 +78,14 @@ class MarkdownWriter:
             self.open_file.writelines(f"$$ {str} $$\n")
         else:
             self.open_file.writelines(f"${str}$")
+
+    @write_to_file
+    def plot(self, figure, description: str):
+        file_location = "".join(self.output_file.split("/")[:-1])
+        if not os.path.isdir(f"{file_location}/resources"):
+            os.system(f"mkdir {file_location}/resources")
+        figure.savefig(f"{file_location}/resources/{description}", bbox_inches='tight')
+        self.open_file.write(f"![{description}]({file_location}/resources/{description})")
 
     def clear_file(self):
         self.open_file = open(self.output_file, "w")
