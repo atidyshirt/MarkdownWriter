@@ -39,7 +39,7 @@ class MarkdownWriter:
         self.open_file.writelines(f"#### {str}\n")
 
     @write_to_file
-    def bold(self, str):
+    def bold(self, str, newline=False):
         """ Bold text with newline
 
         Signature: italic(str, newline)
@@ -69,7 +69,7 @@ class MarkdownWriter:
             self.open_file.writelines(f"*{str}*\n")
 
     @write_to_file
-    def math(self, str):
+    def math(self, str, newline=False):
         """ Latex maths mode inline text """
         if str[-1] == " ":
             str = str[:-1]
