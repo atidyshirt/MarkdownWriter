@@ -30,56 +30,53 @@ class MarkdownWriter:
         self.open_file.writelines(f"### {str}\n")
 
     @write_to_file
+    def header4(self, str):
+        """ Fourth level header """
+        self.open_file.writelines(f"#### {str}\n")
+
+    @write_to_file
     def bold(self, str):
-        """ Bold text with newline """
+        """ Bold text with newline
+
+        Signature: italic(str, newline)
+        """
         if str[-1] == " ":
             str = str[:-1]
         if str[0] == " ":
             str = str[0:]
-        self.open_file.writelines(f"**{str}**\n")
+        if newline:
+            self.open_file.writelines(f"**{str}**\n")
+        else:
+            self.open_file.writelines(f"**{str}**")
 
     @write_to_file
-    def bold_inline(self, str):
-        """ Inline bold text """
-        if str[-1] == " ":
-            str = str[:-1]
-        if str[0] == " ":
-            str = str[0:]
-        self.open_file.writelines(f"**{str}**")
+    def italic(self, str, newline=False):
+        """ italic text
 
-    @write_to_file
-    def italic(self, str):
-        """ italic text """
+        Signature: italic(str, newline)
+        """
         if str[-1] == " ":
             str = str[:-1]
         if str[0] == " ":
             str = str[0:]
-        self.open_file.writelines(f"*{str}*\n")
-
-    @write_to_file
-    def italic_inline(self, str):
-        """ Inline italics """
-        if str[-1] == " ":
-            str = str[:-1]
-        if str[0] == " ":
-            str = str[0:]
-        self.open_file.writelines(f"*{str}*")
+        if newline:
+            self.open_file.writelines(f"*{str}*\n")
+        else:
+            self.open_file.writelines(f"*{str}*\n")
 
     @write_to_file
     def math(self, str):
-        """ Latex maths mode """
-        self.open_file.writelines(f"$$ {str} $$\n")
-
-    @write_to_file
-    def math_inline(self, str):
         """ Latex maths mode inline text """
         if str[-1] == " ":
             str = str[:-1]
         if str[0] == " ":
             str = str[0:]
-        self.open_file.writelines(f"${str}$")
+        if newline:
+            self.open_file.writelines(f"$$ {str} $$\n")
+        else:
+            self.open_file.writelines(f"${str}$")
 
-    def clear(self):
+    def clear_file(self):
         self.open_file = open(self.output_file, "w")
         self.open_file.write("")
         self.open_file.close()
