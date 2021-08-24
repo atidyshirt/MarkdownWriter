@@ -1,11 +1,13 @@
-# Done
+# Todo
+
+### Done
 
 * Level 1-4 Headers
 * Bold text (inline and newline)
 * Italic text (inline and newline)
 * Latex Math (inline and newline)
 
-# In Progress
+### In Progress
 
 * diagrams/plots/images
   + Look into types of plots *with matplotlib*
@@ -13,7 +15,7 @@
   + Needs error catching 
   + Handling of other types of images 
 
-# Roadmap
+### Roadmap
 
 * Lists
 * Codeblocks
