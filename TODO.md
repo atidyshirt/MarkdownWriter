@@ -10,12 +10,14 @@
 * Fix dependencies
   + Making some functionality optional
   + Check for optional dependencies and handle accordingly
+  + NOTE: base functionality does not require dependencies
+* Lists *From dictionary*
+* Codeblocks
 
 ### In Progress
 
 ### Roadmap
 
-* Lists
-* Codeblocks
 * Package module
   + learn how to do this properly
+* Possible extraction of function from the current python file - extract as codeblock

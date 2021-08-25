@@ -11,3 +11,4 @@ def strip_whitespace(string: str) -> str:
     if string[0] == " ":
         string = "".join(string.lstrip())
     return string
+

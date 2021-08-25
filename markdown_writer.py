@@ -76,6 +76,27 @@ class MarkdownWriter:
         else:
             self.open_file.writelines(f"${string}$")
 
+    @write_to_file
+    def codeblock(self, block: str, language="") -> None:
+        """ Writes a code block to markdown file
+
+        param: `language` defults to none
+        """
+        self.open_file.writelines(f"```\n{block}\n```\n")
+
+    @write_to_file
+    def list(self, dict_list: dict) -> None:
+        """ Builds a list of bullet points from a python dictionary """
+        result = ""
+        for key, value in dict_list.items():
+            result += f"* {key}\n"
+            for ke, val in value.items():
+                result += f"\t* {ke}:\n"
+                for item in val:
+                    result += f"\t\t* {item}\n"
+        self.open_file.writelines(result)
+
+
     try:
         import matplotlib.pyplot as plt
         @write_to_file
@@ -88,7 +109,7 @@ class MarkdownWriter:
             if not os.path.isdir(f"{file_location}/resources"):
                 os.system(f"mkdir {file_location}/resources")
             figure.savefig(f"{file_location}/resources/{file_name}", bbox_inches='tight')
-            self.open_file.write(f"![{description}]({file_location}/resources/{file_name})")
+            self.open_file.write(f"![{description}]({file_location}/resources/{file_name})\n")
     except ImportError:
         pass
 
