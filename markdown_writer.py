@@ -65,7 +65,7 @@ class MarkdownWriter:
         if newline:
             self.open_file.writelines(f"*{string}*\n")
         else:
-            self.open_file.writelines(f"*{string}*\n")
+            self.open_file.writelines(f"*{string}*")
 
     @write_to_file
     def math(self, string: str, newline=False) -> None:

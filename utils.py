@@ -5,7 +5,7 @@ Version: < 1
 """
 
 def strip_whitespace(string: str) -> str:
-    """ Strip prefix and suffix whitespace from a string """
+    """ Strip leading and trailing whitespace from a string """
     if string[-1] == " ":
         string = "".join(string.rstrip())
     if string[0] == " ":
