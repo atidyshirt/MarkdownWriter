@@ -6,7 +6,7 @@ class MarkdownWriter:
     Param: file: path to file to write output to
     """
     # FIXME: function signatures changes to show typing
-    def __init__(self, file):
+    def __init__(self, file: str) -> None:
         self.output_file = file
 
     def write_to_file(decorated_function):
@@ -44,9 +44,9 @@ class MarkdownWriter:
         Signature: italic(str, newline)
         """
         if string[-1] == " ":
-            string = string[:-1]
+            string = "".join(string.rstrip())
         if string[0] == " ":
-            string = string[0:]
+            string = "".join(string.lstrip())
         if newline:
             self.open_file.writelines(f"**{string}**\n")
         else:
@@ -59,9 +59,9 @@ class MarkdownWriter:
         Signature: italic(str, newline)
         """
         if string[-1] == " ":
-            string = string[:-1]
+            string = "".join(string.rstrip())
         if string[0] == " ":
-            string = string[0:]
+            string = "".join(string.lstrip())
         if newline:
             self.open_file.writelines(f"*{string}*\n")
         else:
@@ -71,9 +71,9 @@ class MarkdownWriter:
     def math(self, string: str, newline=False) -> None:
         """ Latex maths mode inline text """
         if string[-1] == " ":
-            string = string[:-1]
+            string = "".join(string.rstrip())
         if string[0] == " ":
-            string = string[0:]
+            string = "".join(string.lstrip())
         if newline:
             self.open_file.writelines(f"$$ {string} $$\n")
         else:
