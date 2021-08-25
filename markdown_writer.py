@@ -24,6 +24,11 @@ class MarkdownWriter:
         return file_open
 
     @write_to_file
+    def paragraph(self, string: str) -> None:
+        """ Write paragraph to markdown """
+        self.open_file.writelines(f"{string}\n")
+
+    @write_to_file
     def header1(self, string: str) -> None:
         """ First level header """
         self.open_file.writelines(f"# {string}\n")
@@ -95,7 +100,6 @@ class MarkdownWriter:
                 for item in val:
                     result += f"\t\t* {item}\n"
         self.open_file.writelines(result)
-
 
     try:
         import matplotlib.pyplot as plt
