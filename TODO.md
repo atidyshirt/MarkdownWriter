@@ -13,11 +13,19 @@
   + NOTE: base functionality does not require dependencies
 * Lists *From dictionary*
 * Codeblocks
+* Package pre-release module
+  * Licencing
+  * Installing
+  * Makefile
+  * pyproject.toml
+  * Code structure
 
 ### In Progress
 
+* Documentation of all the current functionality
+
 ### Roadmap
 
-* Package module
-  + learn how to do this properly
 * Possible extraction of function from the current python file - extract as codeblock
+* Package module (Version 1)
+
