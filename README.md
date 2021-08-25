@@ -2,7 +2,17 @@
 
 A little module to write markdown output from python code
 
-**Example of use**
+### Installing
+
+> Note: this module is not yet at version one.
+
+To install the current release using pip, run the following:
+
+```sh
+pip install --index-url https://test.pypi.org/simple/ --no-deps markdown-writer-atidyshirt
+```
+
+### Example of use in a basic project
 
 ```python
 def main():
@@ -35,22 +45,23 @@ def main():
 > Generated output
 
 ```md
-# First triange
+# First triangle
 
-**Triange consists of the following lines:**
+**Triangle consists of the following lines:**
+
 *from point (1, 2) to point (2, 6), from point (2, 6) to point (3, 1), from point (3, 1) to point (1, 2)*
 
-# Second triange
+# Second triangle
 
-**Triange consists of the following lines:**
+**Triangle consists of the following lines:**
 
 *from point (3, 1) to point (2, 6), from point (2, 6) to point (5, 5), from point (5, 5) to point (3, 1)*
 
 ## Result: The two triangles are contigutious along the line from point (2, 6) to point (3, 1)
 
-![Two triange graph](./resources/plot_triangles.png)
+![Two triangle graph](./resources/plot_triangles.png)
 ```
 
-### Preview of usage
+### Showcase of generated output
 
 ![Triangle plot example](./preview/output-preview.png)
