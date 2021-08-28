@@ -5,7 +5,7 @@ Version: < 1
 """
 
 import os
-from utils import *
+from markdown_writer.utils import *
 
 class MarkdownWriter:
     """Write markdown output to a specified file
