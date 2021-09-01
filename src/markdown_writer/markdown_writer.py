@@ -7,6 +7,16 @@ Version: < 1
 import os
 from markdown_writer.utils import *
 
+
+def write_to_file(decorated_function):
+    def file_open(self, *args, **kwargs):
+        self.open_file = open(self.output_file, "a")
+        decorated_function(self, *args, **kwargs)
+        self.open_file.writelines("\n")
+        self.open_file.close()
+    return file_open
+
+
 class MarkdownWriter:
     """Write markdown output to a specified file
 
@@ -14,14 +24,6 @@ class MarkdownWriter:
     """
     def __init__(self, file: str) -> None:
         self.output_file = file
-
-    def write_to_file(decorated_function):
-        def file_open(self, *args, **kwargs):
-            self.open_file = open(self.output_file, "a")
-            decorated_function(self, *args, **kwargs)
-            self.open_file.writelines("\n")
-            self.open_file.close()
-        return file_open
 
     @write_to_file
     def paragraph(self, string: str) -> None:
@@ -87,7 +89,7 @@ class MarkdownWriter:
 
         param: `language` defults to none
         """
-        self.open_file.writelines(f"```\n{block}\n```\n")
+        self.open_file.writelines(f"```{language}\n{block}\n```\n")
 
     @write_to_file
     def list(self, dict_list: dict) -> None:
@@ -102,7 +104,6 @@ class MarkdownWriter:
         self.open_file.writelines(result)
 
     try:
-        import matplotlib.pyplot as plt
         @write_to_file
         def plot(self, figure, file_name: str, description: str) -> None:
             """ Writing plots from matplotlib to markdown (image)
