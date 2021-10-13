@@ -5,7 +5,7 @@ Version: < 1
 """
 
 import os
-from markdown_writer.utils import *
+from .utils import *
 
 
 def write_to_file(decorated_function):
